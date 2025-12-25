@@ -1,17 +1,17 @@
-# class ExampleClass:
-#     counter = 0
-#     def __init__(self, val = 1):
-#         self.__first = val
-#         ExampleClass.counter += 1
+class ExampleClass:
+    counter = 0
+    def __init__(self, val = 1):
+        self.__first = val
+        ExampleClass.counter += 1
 
 
-# example_object_1 = ExampleClass()
-# example_object_2 = ExampleClass(2)
-# example_object_3 = ExampleClass(4)
+example_object_1 = ExampleClass()
+example_object_2 = ExampleClass(2)
+example_object_3 = ExampleClass(4)
 
-# print(example_object_1.__dict__, example_object_1.counter)
-# print(example_object_2.__dict__, example_object_2.counter)
-# print(example_object_3.__dict__, example_object_3.counter)
+print(example_object_1.__dict__, example_object_1.counter)
+print(example_object_2.__dict__, example_object_2.counter)
+print(example_object_3.__dict__, example_object_3.counter)
 
 # O/P:
 # {'_ExampleClass__first': 1} 3
@@ -33,35 +33,35 @@
 
 
 
-# class ExampleClass:
-#     __counter = 0
-#     def __init__(self, val = 1):
-#         self.__first = val
-#         ExampleClass.__counter += 1
+class ExampleClass:
+    __counter = 0
+    def __init__(self, val = 1):
+        self.__first = val
+        ExampleClass.__counter += 1
 
 
-# example_object_1 = ExampleClass()
-# example_object_2 = ExampleClass(2)
-# example_object_3 = ExampleClass(4)
+example_object_1 = ExampleClass()
+example_object_2 = ExampleClass(2)
+example_object_3 = ExampleClass(4)
 
-# print(example_object_1.__dict__, example_object_1._ExampleClass__counter)
-# print(example_object_2.__dict__, example_object_2._ExampleClass__counter)
-# print(example_object_3.__dict__, example_object_3._ExampleClass__counter)
+print(example_object_1.__dict__, example_object_1._ExampleClass__counter)
+print(example_object_2.__dict__, example_object_2._ExampleClass__counter)
+print(example_object_3.__dict__, example_object_3._ExampleClass__counter)
 
 
 # Now we're going to take the opportunity to show you the difference between these two __dict__ variables, the one from the class and the one from the object.
 
-# class ExampleClass:
-#     varia = 1
-#     def __init__(self, val):
-#         ExampleClass.varia = val
+class ExampleClass:
+    varia = 1
+    def __init__(self, val):
+        ExampleClass.varia = val
 
 
-# print(ExampleClass.__dict__)
-# example_object = ExampleClass(2)
+print(ExampleClass.__dict__)
+example_object = ExampleClass(2)
 
-# print(ExampleClass.__dict__)
-# print(example_object.__dict__)
+print(ExampleClass.__dict__)
+print(example_object.__dict__)
 
 # Let's take a closer look at it:
 
@@ -80,38 +80,38 @@
 
 
 #checking attribute existence
-# class ExampleClass:
-#     def __init__(self, val):
-#         if val % 2 != 0:
-#             self.a = 1
-#         else:
-#             self.b = 1
+class ExampleClass:
+    def __init__(self, val):
+        if val % 2 != 0:
+            self.a = 1
+        else:
+            self.b = 1
 
 
-# example_object = ExampleClass(1)
+example_object = ExampleClass(1)
 
-# print(example_object.a)
-# print(example_object.b)
+print(example_object.a)
+print(example_object.b)
     
 # As you can see, accessing a non-existing object (class) attribute causes an AttributeError exception.
 
 # The try-except instruction gives you the chance to avoid issues with non-existent properties.
 
-# class ExampleClass:
-#     def __init__(self, val):
-#         if val % 2 != 0:
-#             self.a = 1
-#         else:
-#             self.b = 1
+class ExampleClass:
+    def __init__(self, val):
+        if val % 2 != 0:
+            self.a = 1
+        else:
+            self.b = 1
 
 
-# example_object = ExampleClass(1)
-# print(example_object.a)
+example_object = ExampleClass(1)
+print(example_object.a)
 
-# try:
-#     print(example_object.b)
-# except AttributeError:
-#     pass
+try:
+    print(example_object.b)
+except AttributeError:
+    pass
     
 
 
@@ -123,19 +123,19 @@
 
 # This is how you can utilize it:
 
-# class ExampleClass:
-#     def __init__(self, val):
-#         if val % 2 != 0:
-#             self.a = 1
-#         else:
-#             self.b = 1
+class ExampleClass:
+    def __init__(self, val):
+        if val % 2 != 0:
+            self.a = 1
+        else:
+            self.b = 1
  
  
-# example_object = ExampleClass(1)
-# print(example_object.a)
+example_object = ExampleClass(1)
+print(example_object.a)
  
-# if hasattr(example_object, 'b'):
-#     print(example_object.b)
+if hasattr(example_object, 'b'):
+    print(example_object.b)
 
 
 # Don't forget that the hasattr() function can operate on classes, too. You can use it to find out if a class variable is available, just like here in the example in the editor.

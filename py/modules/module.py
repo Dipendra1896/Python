@@ -1,11 +1,11 @@
-# # print("I like to be a module.")
-# # print(__name__)
+print("I like to be a module.")
+print(__name__)
 
-# counter = 0
-# if __name__ == "__main__":
-#    print("I prefer to be a module.")
-# else:
-#    print("I like to be a module.")
+counter = 0
+if __name__ == "__main__":
+   print("I prefer to be a module.")
+else:
+   print("I like to be a module.")
 
 # creating our own module 
 

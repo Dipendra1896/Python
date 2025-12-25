@@ -1,14 +1,14 @@
-# import math
-# def sin(x):
-#     if 2 * x  == pi:
-#         return 0.999999
-#     else:
-#         return None
-# pi = 3.14
+import math
+def sin(x):
+    if 2 * x  == pi:
+        return 0.999999
+    else:
+        return None
+pi = 3.14
 
-# print(sin(pi/2))
+print(sin(pi/2))
 
-# print(math.sin(math.pi/2))
+print(math.sin(math.pi/2))
 
 
 
@@ -29,9 +29,9 @@ print(sine(PI/2))
 # import mod3
 
 # -> 2. If a module is imported in the above manner and you want to access any of its entities, you need to prefix the entity's name using dot notation. For example: 
-                # import my_module
+# import my_module
    
-                # result = my_module.my_function(my_module.my_data)
+# result = my_module.my_function(my_module.my_data)
 
 # The snippet makes use of two entities coming from the my_module module: a function named my_function() and a variable named my_data. Both names must be prefixed by my_module. None of the imported entity names conflicts with the identical names existing in your code's namespace.
 

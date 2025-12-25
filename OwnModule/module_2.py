@@ -2,24 +2,24 @@
 # The function returns an alphabetically sorted list containing all entities' names available in the module identified by a name passed to the function as an argument:
 
 
-# import math
-# for name in dir(math):
-#     print(name, end="\t")
+import math
+for name in dir(math):
+    print(name, end="\t")
 
 
 #Exploring math module in a little bit depth
-# from math import pi, radians, degrees, sin, cos, tan, asin
+from math import pi, radians, degrees, sin, cos, tan, asin
 
-# ad = 90
-# ar = radians(ad)
-# ad = degrees(ar)
+ad = 90
+ar = radians(ad)
+ad = degrees(ar)
 
-# print(ad == 90.)
-# print(ar == pi / 2.)
-# print(sin(ar) / cos(ar) == tan(ar))
-# print(asin(sin(ar)) == ar)
-# print(ar)
-# print(ad)
+print(ad == 90.)
+print(ar == pi / 2.)
+print(sin(ar) / cos(ar) == tan(ar))
+print(asin(sin(ar)) == ar)
+print(ar)
+print(ad)
 
  # math module also contains a set of their hyperbolic analogues:
 # sinh(x) → the hyperbolic sine;
@@ -38,11 +38,11 @@
 # log10(x) → the decimal logarithm of x (more precise than log(x, 10))
 # log2(x) → the binary logarithm of x (more precise than log(x, 2))
 
-# from math import e, exp, log
+from math import e, exp, log
 
-# print(pow(e, 1) == exp(log(e)))
-# print(pow(2, 2) == exp(2 * log(2)))
-# print(log(e, e) == exp(0))
+print(pow(e, 1) == exp(log(e)))
+print(pow(2, 2) == exp(2 * log(2)))
+print(log(e, e) == exp(0))
 
 
 # The last group consists of some general-purpose functions like:
@@ -65,49 +65,49 @@
 # randrange(beg, end, step)
 # randint(left, right)
 
-# from random import randrange, randint
+from random import randrange, randint
 
-# print(randrange(1), end='\n')
-# print(randrange(0, 1), end='\n')
-# print(randrange(0, 1, 1), end='\n')
-# print(randint(0, 1))
+print(randrange(1), end='\n')
+print(randrange(0, 1), end='\n')
+print(randrange(0, 1, 1), end='\n')
+print(randint(0, 1))
 
-# from random import randint
+from random import randint
 
-# for i in range(10):
-#     print(randint(1, 10), end=',')
+for i in range(10):
+    print(randint(1, 10), end=',')
 
 # Platform module
-# from platform import platform
+from platform import platform
 
-# print(platform())     #platform() function
-# print(platform(1))
-# print(platform(0, 1))
+print(platform())     #platform() function
+print(platform(1))
+print(platform(0, 1))
 
-# from platform import machine
+from platform import machine
 
-# print(machine())    #machine() function
-
-
-# from platform import processor
-
-# print(processor())   # processor() function
-
-# from platform import system
-
-# print(system())  # system() function return generic os name as string
+print(machine())    #machine() function
 
 
-# from platform import version
+from platform import processor
 
-# print(version())  # version() returns os version 
+print(processor())   # processor() function
 
-# from platform import python_implementation, python_version_tuple
+from platform import system
 
-# print(python_implementation())
+print(system())  # system() function return generic os name as string
 
-# for atr in python_version_tuple():
-#     print(atr)
+
+from platform import version
+
+print(version())  # version() returns os version 
+
+from platform import python_implementation, python_version_tuple
+
+print(python_implementation())
+
+for atr in python_version_tuple():
+    print(atr)
 
 
 import os

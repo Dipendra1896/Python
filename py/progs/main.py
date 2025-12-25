@@ -1,5 +1,5 @@
-# import module
-# print(module.counter)
+import module
+print(module.counter)
 
 from sys import path
 
