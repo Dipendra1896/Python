@@ -52,7 +52,6 @@ except IOError as e:
 
 
 
-
 #4.3.6 How to read bytes from a stream: 
 # Reading from a binary file requires the use of a specialized method name readinto(), as the method doesn't create a new byte array object, but fills a previously created one with the values taken from the binary file.
 
@@ -101,7 +100,7 @@ except IOError as e:
 #The method tries to read the desired number of bytes from the file, and the length of the returned object can be used to determine the number of bytes actually read.
 try:
     binary_file = open('file.bin', 'rb')
-    data = bytearray(binary_file.read(5))  #Reads 5 bytes only from the file.bin.(Note: the first five bytes of the file have been read by the code – the next five are still waiting to be processed.)
+    data = bytearray(binary_file.read(5))  #Reads 5 bytes only from the file.bin.(Note: the first five bytes of the file have been read by the code – the next five are still waiting to be processed.)     
     binary_file.close()
 
     for b in data:
@@ -168,5 +167,7 @@ try:
     print()
 
     destData.close()
-except IOError as e:
-    print("Cannot read destination file:", strerror(e.errno))
+except IOError as e:    
+    print("Cannot read destination file:", strerror(e.errno))     
+
+
