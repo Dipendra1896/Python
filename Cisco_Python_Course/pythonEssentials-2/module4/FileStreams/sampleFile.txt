@@ -1,0 +1,13 @@
+John     Smith    5
+Anna     Boleyn   4.5
+John     Smith    2
+Anna     Boleyn   11
+Andrew   Cox      1.5
+Dipendra Patel    15
+Sudip    poudel   25
+Rajat    Yadav    15
+Dipendra Patel    17
+Sudip    poudel   20
+John     Smith    5
+Bishal   koirala  20
+Rajat    Yadav    18
