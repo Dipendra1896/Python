@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+        }
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .calc-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        .reset-btn {
+            background: #f44336;
+            color: white;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+        .underweight { background: #bde0fe; color: #023e8a; }
+        .normal { background: #d8f3dc; color: #2d6a4f; }
+        .overweight { background: #fff3b0; color: #bb3e03; }
+        .obese { background: #ffb3b3; color: #9d0208; }
+        .error {
+            background: #ffe0e0;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<main class="container">
+    <h3>BMI CALCULATOR</h3>
+
+    <div>
+        <label for="weight">Weight (kg):</label>
+        <input id="weight" type="number" step="any" min="0">
+
+        <label for="height">Height (cm):</label>
+        <input id="height" type="number" step="any" min="0">
+
+        <button type="button" class="calc-btn" py-click="calculate_bmi">Calculate</button>
+        <button type="button" class="reset-btn" py-click="reset_form">Reset</button>
+
+        <div id="error" class="error"></div>
+        <div id="result" class="result"></div>
+    </div>
+</main>
+
+<script type="py">
+from pyscript import document
+
+def calculate_bmi(event):
+    # Get elements
+    weight_input = document.querySelector("#weight")
+    height_input = document.querySelector("#height")
+    result_div = document.querySelector("#result")
+    error_div = document.querySelector("#error")
+    
+    # Hide previous messages
+    error_div.style.display = "none"
+    result_div.style.display = "none"
+    
+    # Get values
+    weight_value = weight_input.value
+    height_value = height_input.value
+    
+    # Validate inputs
+    if not weight_value or not height_value:
+        error_div.innerHTML = "Please enter both weight and height"
+        error_div.style.display = "block"
+        return
+    
+    try:
+        weight = float(weight_value)
+        height_cm = float(height_value)
+        
+        if weight <= 0 or height_cm <= 0:
+            error_div.innerHTML = "Please enter positive values"
+            error_div.style.display = "block"
+            return
+        
+        # Calculate BMI using Python
+        height_m = height_cm / 100
+        bmi = weight / (height_m ** 2)
+        bmi_rounded = round(bmi, 2)
+        
+        # Determine category using Python
+        if bmi < 18.5:
+            category = "Underweight"
+            css_class = "underweight"
+        elif bmi < 25:
+            category = "Normal"
+            css_class = "normal"
+        elif bmi < 30:
+            category = "Overweight"
+            css_class = "overweight"
+        else:
+            category = "Obese"
+            css_class = "obese"
+        
+        # Display result
+        result_div.innerHTML = f"""
+            Your BMI is <b>{bmi_rounded}</b><br>
+            Category: <b>{category}</b><br><br>
+            Healthy BMI Range: 18.5 – 24.9
+        """
+        result_div.className = "result " + css_class
+        result_div.style.display = "block"
+        
+    except Exception as e:
+        error_div.innerHTML = f"Error: {str(e)}"
+        error_div.style.display = "block"
+
+def reset_form(event):
+    # Clear inputs
+    document.querySelector("#weight").value = ""
+    document.querySelector("#height").value = ""
+    
+    # Hide messages
+    document.querySelector("#result").style.display = "none"
+    document.querySelector("#error").style.display = "none"
+</script>
+
+</body>
+</html>
